@@ -2,6 +2,16 @@ export const databaseData = {
   id: "database",
   title: "Database Fundamentals (SQL & NoSQL)",
   subtitle: "Understand relational databases (PostgreSQL, MySQL), document databases (MongoDB), key-value stores (Redis), ACID properties, and essential SQL queries.",
+  usefulLinks: [
+    { label: "PostgreSQL Documentation", url: "https://www.postgresql.org/docs/" },
+    { label: "MySQL Reference Manual", url: "https://dev.mysql.com/doc/refman/8.0/en/" },
+    { label: "MongoDB University (Free Courses)", url: "https://university.mongodb.com/" },
+    { label: "Redis Documentation", url: "https://redis.io/docs/" },
+    { label: "SQL Tutorial (W3Schools)", url: "https://www.w3schools.com/sql/" },
+    { label: "SQLBolt Interactive Exercises", url: "https://sqlbolt.com/" },
+    { label: "DB Fiddle (Online SQL Playground)", url: "https://www.db-fiddle.com/" },
+    { label: "Use The Index, Luke (Indexing Guide)", url: "https://use-the-index-luke.com/" }
+  ],
   items: [
     {
       id: "sql-vs-nosql",

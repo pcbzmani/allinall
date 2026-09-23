@@ -2,6 +2,15 @@ export const pythonData = {
   id: "python",
   title: "Python Essentials & Best Practices",
   subtitle: "Master core Python syntax, data structures, Object-Oriented Programming (OOP), virtual environments (`venv`), and REST API integration.",
+  usefulLinks: [
+    { label: "Python Official Documentation", url: "https://docs.python.org/3/" },
+    { label: "Real Python Tutorials", url: "https://realpython.com/" },
+    { label: "Python Package Index (PyPI)", url: "https://pypi.org/" },
+    { label: "PEP 8 Style Guide", url: "https://peps.python.org/pep-0008/" },
+    { label: "Automate the Boring Stuff (Free Book)", url: "https://automatetheboringstuff.com/" },
+    { label: "FastAPI Documentation", url: "https://fastapi.tiangolo.com/" },
+    { label: "Python Cheat Sheet", url: "https://www.pythoncheatsheet.org/" }
+  ],
   items: [
     {
       id: "python-datastructures",

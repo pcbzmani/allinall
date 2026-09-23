@@ -4,12 +4,12 @@ import { Network, GitBranch, Cpu, Bot, Code2, Database, Cloud, Rocket } from 'lu
 export function Sidebar({ activeSection, setActiveSection }) {
   const menuItems = [
     { id: 'networking', label: 'Networking & CLI', icon: Network, count: 6 },
-    { id: 'git', label: 'Git Cheat Sheet', icon: GitBranch, count: 6 },
-    { id: 'cicd', label: 'CI/CD Pipelines', icon: Cpu, count: 3 },
-    { id: 'ai', label: 'AI & ML Basics', icon: Bot, count: 3 },
+    { id: 'git', label: 'Git Cheat Sheet', icon: GitBranch, count: 7 },
+    { id: 'cicd', label: 'CI/CD Pipelines', icon: Cpu, count: 7 },
+    { id: 'ai', label: 'AI & ML Basics', icon: Bot, count: 4 },
     { id: 'python', label: 'Python Essentials', icon: Code2, count: 3 },
     { id: 'database', label: 'Databases (SQL/NoSQL)', icon: Database, count: 2 },
-    { id: 'gcp', label: 'GCP Cloud Basics', icon: Cloud, count: 2 },
+    { id: 'gcp', label: 'GCP Cloud Platform', icon: Cloud, count: 10 },
     { id: 'deployment-guide', label: 'GitHub & Netlify Guide', icon: Rocket, count: 'Guide' }
   ];
 

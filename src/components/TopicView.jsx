@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Copy, Check, Terminal, HelpCircle, FileText, CheckCircle2 } from 'lucide-react';
+import { Copy, Check, Terminal, CheckCircle2, ExternalLink, BookOpen } from 'lucide-react';
 
 export function TopicView({ sectionData, showToast }) {
   const [activeTabs, setActiveTabs] = useState({});
@@ -24,6 +24,46 @@ export function TopicView({ sectionData, showToast }) {
         <h1 className="header-banner-title">{sectionData.title}</h1>
         <p className="header-banner-desc">{sectionData.subtitle}</p>
       </div>
+
+      {/* Useful Links Section */}
+      {sectionData.usefulLinks && sectionData.usefulLinks.length > 0 && (
+        <div className="glass-card" style={{ marginBottom: '2rem' }}>
+          <h3 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--primary)' }}>
+            <BookOpen size={18} />
+            Useful Documentation & Resources
+          </h3>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem' }}>
+            {sectionData.usefulLinks.map((link, idx) => (
+              <a 
+                key={idx}
+                href={link.url}
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.4rem',
+                  padding: '0.45rem 0.85rem',
+                  borderRadius: 'var(--radius-full)',
+                  background: 'rgba(56, 189, 248, 0.08)',
+                  border: '1px solid rgba(56, 189, 248, 0.2)',
+                  color: 'var(--primary)',
+                  fontSize: '0.82rem',
+                  fontWeight: 600,
+                  textDecoration: 'none',
+                  transition: 'all 0.2s ease',
+                  whiteSpace: 'nowrap'
+                }}
+                onMouseEnter={(e) => { e.target.style.background = 'rgba(56, 189, 248, 0.18)'; e.target.style.borderColor = 'var(--primary)'; }}
+                onMouseLeave={(e) => { e.target.style.background = 'rgba(56, 189, 248, 0.08)'; e.target.style.borderColor = 'rgba(56, 189, 248, 0.2)'; }}
+              >
+                <span>{link.label}</span>
+                <ExternalLink size={12} />
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="section-header">
         <h2 className="section-title">
@@ -153,8 +193,8 @@ export function TopicView({ sectionData, showToast }) {
                   <h4 style={{ fontSize: '0.95rem', color: 'var(--primary)', marginBottom: '0.75rem' }}>Real-World Engineering Use Cases</h4>
                   <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
                     {item.useCases?.map((uc, uIdx) => (
-                      <li key={uIdx} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--text-muted)' }}>
-                        <CheckCircle2 size={16} color="var(--accent-green)" />
+                      <li key={uIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', color: 'var(--text-muted)' }}>
+                        <CheckCircle2 size={16} color="var(--accent-green)" style={{ flexShrink: 0, marginTop: '0.15rem' }} />
                         <span>{uc}</span>
                       </li>
                     ))}
