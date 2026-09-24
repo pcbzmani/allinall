@@ -5,6 +5,7 @@ import { TopicView } from './components/TopicView';
 import { TerminalSimulator } from './components/TerminalSimulator';
 import { QuizSection } from './components/QuizSection';
 import { DeploymentGuideView } from './components/DeploymentGuideView';
+import { Background3D } from './components/Background3D';
 
 import { networkingData } from './data/networkingData';
 import { gitData } from './data/gitData';
@@ -46,7 +47,6 @@ export function App() {
     gcp: gcpData
   };
 
-  // Global search filtering across all data items
   const getFilteredData = () => {
     const currentData = allSections[activeSection];
     if (!searchQuery.trim() || !currentData) return currentData;
@@ -69,65 +69,67 @@ export function App() {
   };
 
   return (
-    <div className="app-container">
-      <Navbar 
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-        theme={theme}
-        toggleTheme={toggleTheme}
-        openTerminal={() => setIsTerminalOpen(true)}
-        openQuiz={() => setIsQuizOpen(true)}
-        activeSection={activeSection}
-        setActiveSection={setActiveSection}
-      />
+    <>
+      {/* 3D Animated Background */}
+      {theme === 'dark' && <Background3D />}
 
-      <div className="main-layout">
-        <Sidebar 
+      <div className="app-container">
+        <Navbar 
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          theme={theme}
+          toggleTheme={toggleTheme}
+          openTerminal={() => setIsTerminalOpen(true)}
+          openQuiz={() => setIsQuizOpen(true)}
           activeSection={activeSection}
           setActiveSection={setActiveSection}
         />
 
-        <main className="content-area">
-          {activeSection === 'deployment-guide' ? (
-            <DeploymentGuideView showToast={showToast} />
-          ) : (
-            <TopicView 
-              sectionData={getFilteredData()} 
-              showToast={showToast}
-            />
-          )}
-        </main>
+        <div className="main-layout">
+          <Sidebar 
+            activeSection={activeSection}
+            setActiveSection={setActiveSection}
+          />
+
+          <main className="content-area">
+            {activeSection === 'deployment-guide' ? (
+              <DeploymentGuideView showToast={showToast} />
+            ) : (
+              <TopicView 
+                sectionData={getFilteredData()} 
+                showToast={showToast}
+              />
+            )}
+          </main>
+        </div>
+
+        <footer className="footer">
+          <div>
+            <strong>DevTech Compass</strong> — Master Computer Science, CLI Tools, DevOps & Cloud Fundamentals.
+          </div>
+          <div style={{ marginTop: '0.4rem', color: 'var(--text-dim)', fontSize: '0.8rem' }}>
+            3D Interactive Developer Knowledge Platform • Hosted on GitHub & Netlify
+          </div>
+        </footer>
+
+        <TerminalSimulator 
+          isOpen={isTerminalOpen} 
+          onClose={() => setIsTerminalOpen(false)} 
+        />
+
+        <QuizSection 
+          isOpen={isQuizOpen}
+          onClose={() => setIsQuizOpen(false)}
+        />
+
+        {toastMessage && (
+          <div className="toast">
+            <Check size={18} color="var(--accent-green)" />
+            <span>{toastMessage}</span>
+          </div>
+        )}
       </div>
-
-      <footer className="footer">
-        <div>
-          <strong>DevTech Compass</strong> — Master Computer Science, CLI Tools, DevOps & Cloud Fundamentals.
-        </div>
-        <div style={{ marginTop: '0.4rem', color: 'var(--text-dim)', fontSize: '0.8rem' }}>
-          Configured for automatic continuous integration hosting on GitHub & Netlify.
-        </div>
-      </footer>
-
-      {/* Terminal Simulator Modal */}
-      <TerminalSimulator 
-        isOpen={isTerminalOpen} 
-        onClose={() => setIsTerminalOpen(false)} 
-      />
-
-      {/* Knowledge Quiz Modal */}
-      <QuizSection 
-        isOpen={isQuizOpen}
-        onClose={() => setIsQuizOpen(false)}
-      />
-
-      {/* Toast Notification */}
-      {toastMessage && (
-        <div className="toast">
-          <Check size={18} color="var(--accent-green)" />
-          <span>{toastMessage}</span>
-        </div>
-      )}
-    </div>
+    </>
   );
 }
 
