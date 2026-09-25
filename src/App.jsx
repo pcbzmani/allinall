@@ -11,6 +11,7 @@ import { networkingData } from './data/networkingData';
 import { gitData } from './data/gitData';
 import { cicdData } from './data/cicdData';
 import { aiData } from './data/aiData';
+import { agentDevData } from './data/agentDevData';
 import { pythonData } from './data/pythonData';
 import { databaseData } from './data/databaseData';
 import { gcpData } from './data/gcpData';
@@ -42,6 +43,7 @@ export function App() {
     git: gitData,
     cicd: cicdData,
     ai: aiData,
+    'agent-dev': agentDevData,
     python: pythonData,
     database: databaseData,
     gcp: gcpData

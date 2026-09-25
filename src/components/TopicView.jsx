@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Copy, Check, Terminal, CheckCircle2, ExternalLink, BookOpen } from 'lucide-react';
+import { Card3D } from './Card3D';
 
 export function TopicView({ sectionData, showToast }) {
   const [activeTabs, setActiveTabs] = useState({});
@@ -75,7 +76,7 @@ export function TopicView({ sectionData, showToast }) {
         const currentTab = activeTabs[item.id] || 'overview';
 
         return (
-          <div key={item.id} className="command-card">
+          <Card3D key={item.id} className="command-card" intensity={6}>
             <div className="command-header">
               <div className="command-name">
                 <Terminal size={18} />
@@ -202,7 +203,7 @@ export function TopicView({ sectionData, showToast }) {
                 </div>
               )}
             </div>
-          </div>
+          </Card3D>
         );
       })}
     </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Network, GitBranch, Cpu, Bot, Code2, Database, Cloud, Rocket } from 'lucide-react';
+import { Network, GitBranch, Cpu, Bot, Code2, Database, Cloud, Rocket, Sparkles } from 'lucide-react';
 
 export function Sidebar({ activeSection, setActiveSection }) {
   const menuItems = [
@@ -7,6 +7,7 @@ export function Sidebar({ activeSection, setActiveSection }) {
     { id: 'git', label: 'Git Cheat Sheet', icon: GitBranch, count: 7 },
     { id: 'cicd', label: 'CI/CD Pipelines', icon: Cpu, count: 7 },
     { id: 'ai', label: 'AI & ML Basics', icon: Bot, count: 4 },
+    { id: 'agent-dev', label: 'Google Agent Dev (ADK)', icon: Sparkles, count: 7 },
     { id: 'python', label: 'Python Essentials', icon: Code2, count: 3 },
     { id: 'database', label: 'Databases (SQL/NoSQL)', icon: Database, count: 2 },
     { id: 'gcp', label: 'GCP Cloud Platform', icon: Cloud, count: 10 },
